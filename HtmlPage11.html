@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+    <h2>Content as Array.</h2>
+    <p>Content written as an JSON array will be converted into a JavaScript array.</p>
+
+    <p id="demo"></p>
+
+    <script>
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var myArr = JSON.parse(this.responseText);
+                document.getElementById("demo").innerHTML = myArr.cars[0];
+            }
+        };
+        xmlhttp.open("GET", "json_Array.json", true);
+        xmlhttp.send();
+
+    </script>
+
+    <p>Take a look at <a href="json_Array.json" target="_blank">json_Array.json</a></p>
+
+
+
+</body>
+</html>

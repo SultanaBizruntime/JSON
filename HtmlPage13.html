@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+    <h2>Convert a string into a date object.</h2>
+
+    <p id="demo"></p>
+
+    <script>
+
+        var text = '{ "name":"Sulu", "birth":"1986-12-14", "city":"ASSAM"}';
+        var obj = JSON.parse(text, function (key, value) {
+            if (key == "birth") {
+                return new Date(value);
+            } else {
+                return value;
+            }});
+        document.getElementById("demo").innerHTML = obj.name + ", " + obj.birth + " , " + obj.city;
+
+    </script>
+
+</body>
+</html>
